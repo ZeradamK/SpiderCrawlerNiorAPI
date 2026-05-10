@@ -1,0 +1,8 @@
+{
+  "name": "stripe-connector",
+  "version": "0.1.0",
+  "description": "Stripe payment processing MCP integration — charges, subscriptions, payouts, Connect platforms.",
+  "author": {
+    "name": "Stripe"
+  }
+}
