@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "apple-pay": {
+      "type": "http",
+      "url": "https://mcp.apple.com/applepay/mcp"
+    },
+    "google-pay": {
+      "type": "http",
+      "url": "https://mcp.google.com/pay/mcp"
+    }
+  }
+}
