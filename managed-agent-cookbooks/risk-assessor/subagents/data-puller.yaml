@@ -1,0 +1,19 @@
+name: data-puller
+model: claude-opus-4-7
+
+system:
+  text: |
+    You are the Data Puller. Aggregate transaction data, merchant info, and
+    third-party risk signals for risk assessment. Read-only access.
+
+tools:
+  - type: agent_toolset_20260401
+    default_config:
+      enabled: false
+    configs:
+      - name: read
+        enabled: true
+      - name: grep
+        enabled: true
+
+callable_agents: []

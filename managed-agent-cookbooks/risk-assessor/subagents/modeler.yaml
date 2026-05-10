@@ -1,0 +1,19 @@
+name: modeler
+model: claude-opus-4-7
+
+system:
+  text: |
+    You are the Modeler. Score risk at merchant, transaction, and portfolio levels.
+    Model stress scenarios and generate limit recommendations. Read-only access.
+
+tools:
+  - type: agent_toolset_20260401
+    default_config:
+      enabled: false
+    configs:
+      - name: read
+        enabled: true
+      - name: grep
+        enabled: true
+
+callable_agents: []
