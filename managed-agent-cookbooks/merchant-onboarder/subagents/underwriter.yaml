@@ -1,0 +1,23 @@
+name: underwriter
+model: claude-opus-4-7
+
+system:
+  text: |
+    You are the Underwriter. Score merchant risk, determine MCC, calculate limits
+    and fee schedules, and set reserve requirements. Read-only access.
+
+tools:
+  - type: agent_toolset_20260401
+    default_config:
+      enabled: false
+    configs:
+      - name: read
+        enabled: true
+      - name: grep
+        enabled: true
+
+skills:
+  - path: ../../../plugins/agent-plugins/merchant-onboarder/skills/merchant-onboarding
+  - path: ../../../plugins/agent-plugins/merchant-onboarder/skills/merchant-portfolio
+
+callable_agents: []
