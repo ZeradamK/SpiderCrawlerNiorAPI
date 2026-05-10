@@ -1,0 +1,14 @@
+[
+  {
+    "description": "New merchant KYC screening",
+    "input": "Run full KYC screening on business applicant: Acme Trading LLC, EIN 12-3456789, incorporated in Delaware, principal owner John Smith (SSN redacted). Expected monthly volume: $250,000."
+  },
+  {
+    "description": "Sanctions screening on wire transfer",
+    "input": "Screen outbound wire transfer: $45,000 USD from merchant mch_import_export to beneficiary 'Al-Rashid Trading Company' in Dubai, UAE. Intermediary bank: SWIFT ABCDUAED."
+  },
+  {
+    "description": "Transaction monitoring alert - structuring",
+    "input": "AML alert: Customer cust_deposit_heavy has made 6 cash deposits in 3 days totaling $58,000. Individual amounts: $9,500, $9,800, $9,200, $9,900, $9,600, $10,000. Investigate for potential structuring."
+  }
+]
