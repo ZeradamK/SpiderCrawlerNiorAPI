@@ -1,0 +1,18 @@
+[
+  {
+    "description": "Real-time transaction scoring",
+    "input": "Score this transaction for fraud risk: $2,499.99 USD on Visa ending 8888, merchant mch_electronics_online (MCC 5732), card-not-present, new device, IP from Nigeria, billing address in California."
+  },
+  {
+    "description": "Card testing investigation",
+    "input": "Investigate potential card testing on merchant mch_donation_site. We've seen 47 transactions under $1.00 from 12 different cards in the last 30 minutes, all from the same IP address."
+  },
+  {
+    "description": "Account takeover analysis",
+    "input": "Customer cust_john_doe changed their password, added a new shipping address, and made a $3,200 purchase all within 15 minutes. Investigate for potential account takeover."
+  },
+  {
+    "description": "BIN attack detection",
+    "input": "Alert: 85 authorization attempts in the last hour using sequential card numbers from BIN range 411111. All declined with different expiry dates. Merchant: mch_gaming_store."
+  }
+]
