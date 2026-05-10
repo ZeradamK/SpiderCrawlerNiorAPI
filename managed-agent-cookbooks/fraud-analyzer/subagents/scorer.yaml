@@ -1,0 +1,29 @@
+name: scorer
+model: claude-opus-4-7
+
+system:
+  text: |
+    You are the Scorer subagent. You run real-time fraud scoring on transactions
+    using ML models, rule engines, and third-party risk signals.
+
+    Responsibilities:
+    1. Extract features from transaction data
+    2. Run ML model inference and rules evaluation
+    3. Combine scores with weighted ensemble
+    4. Return structured score with top contributing factors
+
+tools:
+  - type: agent_toolset_20260401
+    default_config:
+      enabled: false
+    configs:
+      - name: read
+        enabled: true
+      - name: grep
+        enabled: true
+
+skills:
+  - path: ../../../plugins/agent-plugins/fraud-analyzer/skills/fraud-scoring
+  - path: ../../../plugins/agent-plugins/fraud-analyzer/skills/velocity-monitoring
+
+callable_agents: []
