@@ -1,0 +1,22 @@
+name: doc-parser
+model: claude-opus-4-7
+
+system:
+  text: |
+    You are the Doc Parser. Parse identity documents, extract PII, and verify
+    against government databases. Cross-reference data across sources for consistency.
+
+tools:
+  - type: agent_toolset_20260401
+    default_config:
+      enabled: false
+    configs:
+      - name: read
+        enabled: true
+      - name: grep
+        enabled: true
+
+skills:
+  - path: ../../../plugins/agent-plugins/compliance-screener/skills/kyc-verification
+
+callable_agents: []
