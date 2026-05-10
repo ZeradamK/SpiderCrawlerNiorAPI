@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ErisRiskAssessment",
+  "description": "Risk assessment output schema for the Eris payment platform",
+  "type": "object",
+  "required": ["id", "entity_type", "entity_id", "score", "level", "factors", "assessed_at"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^rsk_[a-zA-Z0-9]{24}$"
+    },
+    "entity_type": {
+      "type": "string",
+      "enum": ["transaction", "merchant", "customer", "payment_method"]
+    },
+    "entity_id": { "type": "string" },
+    "score": { "type": "number", "minimum": 0, "maximum": 100 },
+    "level": {
+      "type": "string",
+      "enum": ["low", "medium", "high", "critical"]
+    },
+    "decision": {
+      "type": "string",
+      "enum": ["approve", "review", "decline", "block"]
+    },
+    "factors": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "weight": { "type": "number", "minimum": 0, "maximum": 1 },
+          "value": { "type": ["string", "number", "boolean"] },
+          "contribution": { "type": "number" },
+          "description": { "type": "string" }
+        },
+        "required": ["name", "weight", "contribution"]
+      }
+    },
+    "rules_triggered": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "rule_id": { "type": "string" },
+          "name": { "type": "string" },
+          "action": { "type": "string", "enum": ["flag", "review", "decline", "block"] }
+        },
+        "required": ["rule_id", "name", "action"]
+      }
+    },
+    "velocity_checks": {
+      "type": "object",
+      "properties": {
+        "hourly_count": { "type": "integer" },
+        "daily_count": { "type": "integer" },
+        "daily_amount": { "type": "integer" },
+        "distinct_cards_24h": { "type": "integer" },
+        "distinct_ips_24h": { "type": "integer" }
+      }
+    },
+    "model_version": { "type": "string" },
+    "assessed_at": { "type": "string", "format": "date-time" },
+    "expires_at": { "type": "string", "format": "date-time" }
+  }
+}
