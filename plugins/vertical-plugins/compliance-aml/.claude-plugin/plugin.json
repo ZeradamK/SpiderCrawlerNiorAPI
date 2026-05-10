@@ -1,0 +1,8 @@
+{
+  "name": "compliance-aml",
+  "version": "0.1.0",
+  "description": "KYC/AML screening, sanctions checks, SAR filing, and regulatory reporting for payment compliance.",
+  "author": {
+    "name": "Eris Payment Services"
+  }
+}
