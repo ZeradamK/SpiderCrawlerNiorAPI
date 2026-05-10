@@ -1,0 +1,22 @@
+name: aggregator
+model: claude-opus-4-7
+
+system:
+  text: |
+    You are the Aggregator. Collect captured transactions by settlement cutoff,
+    group by merchant and currency, exclude disputed transactions.
+
+tools:
+  - type: agent_toolset_20260401
+    default_config:
+      enabled: false
+    configs:
+      - name: read
+        enabled: true
+      - name: grep
+        enabled: true
+
+skills:
+  - path: ../../../plugins/agent-plugins/settlement-agent/skills/batch-processing
+
+callable_agents: []
