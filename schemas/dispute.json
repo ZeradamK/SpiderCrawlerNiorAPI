@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ErisDispute",
+  "description": "Dispute/chargeback object schema for the Eris payment platform",
+  "type": "object",
+  "required": ["id", "transaction_id", "reason_code", "amount", "currency", "status", "created_at"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^dsp_[a-zA-Z0-9]{24}$"
+    },
+    "transaction_id": {
+      "type": "string",
+      "pattern": "^txn_[a-zA-Z0-9]{24}$"
+    },
+    "reason_code": {
+      "type": "string",
+      "description": "Network-specific reason code (e.g., Visa 10.4, MC 4837)"
+    },
+    "reason_category": {
+      "type": "string",
+      "enum": ["fraud", "authorization", "processing_error", "consumer_dispute", "not_received", "not_as_described"]
+    },
+    "amount": { "type": "integer", "minimum": 0 },
+    "currency": { "type": "string", "pattern": "^[A-Z]{3}$" },
+    "status": {
+      "type": "string",
+      "enum": ["open", "under_review", "evidence_submitted", "representment", "won", "lost", "accepted", "expired"]
+    },
+    "evidence": {
+      "type": "object",
+      "properties": {
+        "shipping_proof": { "type": ["string", "null"] },
+        "delivery_confirmation": { "type": ["string", "null"] },
+        "customer_communication": { "type": ["string", "null"] },
+        "refund_policy": { "type": ["string", "null"] },
+        "receipt": { "type": ["string", "null"] },
+        "additional_documents": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "deadlines": {
+      "type": "object",
+      "properties": {
+        "evidence_due": { "type": "string", "format": "date-time" },
+        "representment_due": { "type": ["string", "null"], "format": "date-time" },
+        "arbitration_due": { "type": ["string", "null"], "format": "date-time" }
+      }
+    },
+    "network": {
+      "type": "string",
+      "enum": ["visa", "mastercard", "amex", "discover"]
+    },
+    "created_at": { "type": "string", "format": "date-time" },
+    "updated_at": { "type": "string", "format": "date-time" },
+    "resolved_at": { "type": ["string", "null"], "format": "date-time" }
+  }
+}
