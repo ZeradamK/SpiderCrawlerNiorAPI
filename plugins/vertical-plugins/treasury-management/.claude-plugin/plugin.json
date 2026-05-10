@@ -1,0 +1,8 @@
+{
+  "name": "treasury-management",
+  "version": "0.1.0",
+  "description": "Cash positioning, FX hedging, liquidity forecasting, and bank connectivity for payment operations.",
+  "author": {
+    "name": "Eris Payment Services"
+  }
+}
