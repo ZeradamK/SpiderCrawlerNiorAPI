@@ -1,0 +1,28 @@
+name: settlement-agent
+model: claude-opus-4-7
+
+system:
+  file: ../../plugins/agent-plugins/settlement-agent/agents/settlement-agent.md
+
+tools:
+  - type: agent_toolset_20260401
+    default_config:
+      enabled: false
+    configs:
+      - name: read
+        enabled: true
+      - name: grep
+        enabled: true
+
+mcp_servers:
+  - type: url
+    name: modern-treasury
+    url: "${MODERN_TREASURY_MCP_URL}"
+
+skills:
+  - from_plugin: ../../plugins/agent-plugins/settlement-agent
+
+callable_agents:
+  - manifest: ./subagents/aggregator.yaml
+  - manifest: ./subagents/netter.yaml
+  - manifest: ./subagents/poster.yaml
