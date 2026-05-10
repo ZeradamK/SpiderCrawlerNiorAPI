@@ -1,0 +1,8 @@
+{
+  "name": "risk-assessor",
+  "version": "0.1.0",
+  "description": "Transaction and portfolio risk scoring agent with data-puller, modeler, and reporter subagents.",
+  "author": {
+    "name": "Eris Payment Services"
+  }
+}
