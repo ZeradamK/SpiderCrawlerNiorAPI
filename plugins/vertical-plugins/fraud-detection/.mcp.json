@@ -1,0 +1,20 @@
+{
+  "mcpServers": {
+    "sift": {
+      "type": "http",
+      "url": "https://mcp.sift.com/v1/mcp"
+    },
+    "sardine": {
+      "type": "http",
+      "url": "https://mcp.sardine.ai/v1/mcp"
+    },
+    "socure": {
+      "type": "http",
+      "url": "https://mcp.socure.com/v1/mcp"
+    },
+    "emailage": {
+      "type": "http",
+      "url": "https://mcp.emailage.com/v1/mcp"
+    }
+  }
+}
