@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ErisMerchant",
+  "description": "Merchant entity schema for the Eris payment platform",
+  "type": "object",
+  "required": ["id", "legal_name", "mcc", "status", "created_at"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^mch_[a-zA-Z0-9]{24}$"
+    },
+    "legal_name": { "type": "string", "minLength": 1 },
+    "dba_name": { "type": ["string", "null"] },
+    "mcc": { "type": "string", "pattern": "^[0-9]{4}$" },
+    "status": {
+      "type": "string",
+      "enum": ["pending", "active", "suspended", "terminated", "under_review"]
+    },
+    "risk_tier": {
+      "type": "string",
+      "enum": ["low", "standard", "elevated", "high", "prohibited"]
+    },
+    "address": {
+      "type": "object",
+      "properties": {
+        "line1": { "type": "string" },
+        "line2": { "type": ["string", "null"] },
+        "city": { "type": "string" },
+        "state": { "type": "string" },
+        "postal_code": { "type": "string" },
+        "country": { "type": "string", "pattern": "^[A-Z]{2}$" }
+      },
+      "required": ["line1", "city", "country"]
+    },
+    "processing_limits": {
+      "type": "object",
+      "properties": {
+        "daily_volume": { "type": "integer", "minimum": 0 },
+        "single_transaction": { "type": "integer", "minimum": 0 },
+        "monthly_volume": { "type": "integer", "minimum": 0 },
+        "currency": { "type": "string", "pattern": "^[A-Z]{3}$" }
+      }
+    },
+    "fee_schedule": {
+      "type": "object",
+      "properties": {
+        "interchange_plus": { "type": "number", "minimum": 0 },
+        "per_transaction": { "type": "integer", "minimum": 0 },
+        "monthly_minimum": { "type": "integer", "minimum": 0 },
+        "chargeback_fee": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "settlement_config": {
+      "type": "object",
+      "properties": {
+        "frequency": { "type": "string", "enum": ["daily", "weekly", "monthly"] },
+        "delay_days": { "type": "integer", "minimum": 0, "maximum": 30 },
+        "bank_account_id": { "type": "string" }
+      }
+    },
+    "kyc_status": {
+      "type": "string",
+      "enum": ["not_started", "pending", "approved", "rejected", "expired"]
+    },
+    "created_at": { "type": "string", "format": "date-time" },
+    "updated_at": { "type": "string", "format": "date-time" }
+  }
+}
