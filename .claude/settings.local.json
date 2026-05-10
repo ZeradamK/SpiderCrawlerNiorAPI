@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git fetch *)",
+      "Bash(git show *)",
+      "Bash(git checkout *)",
+      "Bash(git branch *)",
+      "Bash(git add *)",
+      "Bash(git commit -m *)",
+      "Bash(git push *)",
+      "Bash(python3 scripts/*)",
+      "Bash(gh repo *)",
+      "Bash(gh api *)",
+      "Bash(git ls-remote *)"
+    ]
+  }
+}
