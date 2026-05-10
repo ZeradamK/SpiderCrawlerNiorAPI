@@ -1,0 +1,10 @@
+[
+  {
+    "description": "Daily processor reconciliation",
+    "input": "Reconcile yesterday's Stripe settlements against our internal transaction records. Date: 2026-05-08."
+  },
+  {
+    "description": "Bank statement reconciliation",
+    "input": "Reconcile our operating bank account statement for the past week against expected settlement payouts. Identify any missing deposits or unexpected debits."
+  }
+]
