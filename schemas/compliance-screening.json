@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ErisComplianceScreening",
+  "description": "KYC/AML screening result schema for the Eris payment platform",
+  "type": "object",
+  "required": ["id", "entity_type", "entity_id", "screening_type", "result", "screened_at"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^scr_[a-zA-Z0-9]{24}$"
+    },
+    "entity_type": {
+      "type": "string",
+      "enum": ["individual", "business", "transaction"]
+    },
+    "entity_id": { "type": "string" },
+    "screening_type": {
+      "type": "string",
+      "enum": ["kyc", "sanctions", "pep", "adverse_media", "aml_monitoring"]
+    },
+    "result": {
+      "type": "string",
+      "enum": ["clear", "potential_match", "true_match", "review_required", "failed"]
+    },
+    "risk_level": {
+      "type": "string",
+      "enum": ["low", "medium", "high", "critical"]
+    },
+    "matches": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "list_name": { "type": "string" },
+          "entry_id": { "type": "string" },
+          "match_score": { "type": "number", "minimum": 0, "maximum": 100 },
+          "matched_name": { "type": "string" },
+          "match_type": { "type": "string", "enum": ["exact", "fuzzy", "phonetic", "alias"] }
+        },
+        "required": ["list_name", "match_score", "matched_name"]
+      }
+    },
+    "lists_checked": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "decision": {
+      "type": "string",
+      "enum": ["approve", "review", "block", "enhanced_due_diligence"]
+    },
+    "reviewer": { "type": ["string", "null"] },
+    "screened_at": { "type": "string", "format": "date-time" },
+    "expires_at": { "type": ["string", "null"], "format": "date-time" }
+  }
+}
