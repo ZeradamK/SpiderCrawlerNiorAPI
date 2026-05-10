@@ -1,0 +1,38 @@
+name: transaction-processor
+model: claude-opus-4-7
+
+system:
+  file: ../../plugins/agent-plugins/transaction-processor/agents/transaction-processor.md
+  append: |
+    You are running in headless mode via the Managed Agents API.
+    All output should be structured for programmatic consumption.
+    Surface key decisions and metrics in your final response.
+
+tools:
+  - type: agent_toolset_20260401
+    default_config:
+      enabled: false
+    configs:
+      - name: read
+        enabled: true
+      - name: grep
+        enabled: true
+
+mcp_servers:
+  - type: url
+    name: stripe
+    url: "${STRIPE_MCP_URL}"
+  - type: url
+    name: adyen
+    url: "${ADYEN_MCP_URL}"
+  - type: url
+    name: visa-direct
+    url: "${VISA_MCP_URL}"
+
+skills:
+  - from_plugin: ../../plugins/agent-plugins/transaction-processor
+
+callable_agents:
+  - manifest: ./subagents/authorizer.yaml
+  - manifest: ./subagents/capturer.yaml
+  - manifest: ./subagents/settler.yaml
