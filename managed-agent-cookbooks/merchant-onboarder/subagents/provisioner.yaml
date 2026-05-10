@@ -1,0 +1,25 @@
+name: provisioner
+model: claude-opus-4-7
+
+system:
+  text: |
+    You are the Provisioner. Set up approved merchants with MID, API keys,
+    processing limits, settlement schedule, and webhook endpoints.
+    You have WRITE access for generating provisioning artifacts.
+
+tools:
+  - type: agent_toolset_20260401
+    default_config:
+      enabled: false
+    configs:
+      - name: read
+        enabled: true
+      - name: write
+        enabled: true
+      - name: edit
+        enabled: true
+
+skills:
+  - path: ../../../plugins/agent-plugins/merchant-onboarder/skills/merchant-onboarding
+
+callable_agents: []
