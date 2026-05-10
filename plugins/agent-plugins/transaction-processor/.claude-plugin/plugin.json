@@ -1,0 +1,8 @@
+{
+  "name": "transaction-processor",
+  "version": "0.1.0",
+  "description": "End-to-end payment orchestration agent — authorization, capture, settlement with intelligent routing and risk assessment.",
+  "author": {
+    "name": "Eris Payment Services"
+  }
+}
