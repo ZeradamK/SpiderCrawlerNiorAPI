@@ -1,0 +1,8 @@
+{
+  "name": "plaid-connector",
+  "version": "0.1.0",
+  "description": "Plaid financial data MCP integration — account linking, identity verification, transactions, and income.",
+  "author": {
+    "name": "Plaid"
+  }
+}
