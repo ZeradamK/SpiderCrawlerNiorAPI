@@ -1,0 +1,23 @@
+name: netter
+model: claude-opus-4-7
+
+system:
+  text: |
+    You are the Netter. Calculate net settlement amounts by subtracting refunds,
+    chargebacks, and fees from gross captures.
+
+tools:
+  - type: agent_toolset_20260401
+    default_config:
+      enabled: false
+    configs:
+      - name: read
+        enabled: true
+      - name: grep
+        enabled: true
+
+skills:
+  - path: ../../../plugins/agent-plugins/settlement-agent/skills/batch-processing
+  - path: ../../../plugins/agent-plugins/settlement-agent/skills/interchange-optimization
+
+callable_agents: []
