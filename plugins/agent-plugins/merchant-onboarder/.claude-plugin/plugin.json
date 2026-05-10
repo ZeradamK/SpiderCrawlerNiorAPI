@@ -1,0 +1,8 @@
+{
+  "name": "merchant-onboarder",
+  "version": "0.1.0",
+  "description": "Merchant application processing agent with doc-reader, underwriter, and provisioner subagents.",
+  "author": {
+    "name": "Eris Payment Services"
+  }
+}
