@@ -1,0 +1,31 @@
+name: reconciliation-agent
+model: claude-opus-4-7
+
+system:
+  file: ../../plugins/agent-plugins/reconciliation-agent/agents/reconciliation-agent.md
+
+tools:
+  - type: agent_toolset_20260401
+    default_config:
+      enabled: false
+    configs:
+      - name: read
+        enabled: true
+      - name: grep
+        enabled: true
+
+mcp_servers:
+  - type: url
+    name: stripe
+    url: "${STRIPE_MCP_URL}"
+  - type: url
+    name: plaid
+    url: "${PLAID_MCP_URL}"
+
+skills:
+  - from_plugin: ../../plugins/agent-plugins/reconciliation-agent
+
+callable_agents:
+  - manifest: ./subagents/matcher.yaml
+  - manifest: ./subagents/break-finder.yaml
+  - manifest: ./subagents/resolver.yaml
