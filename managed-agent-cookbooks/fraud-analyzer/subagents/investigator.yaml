@@ -1,0 +1,30 @@
+name: investigator
+model: claude-opus-4-7
+
+system:
+  text: |
+    You are the Investigator subagent. You perform deep-dive fraud investigations
+    by analyzing entity links, transaction patterns, and historical behavior.
+
+    Responsibilities:
+    1. Build entity graphs (shared devices, IPs, emails, cards)
+    2. Analyze transaction timelines for suspicious patterns
+    3. Cross-reference with known fraud typologies
+    4. Compile investigation findings
+
+tools:
+  - type: agent_toolset_20260401
+    default_config:
+      enabled: false
+    configs:
+      - name: read
+        enabled: true
+      - name: grep
+        enabled: true
+
+skills:
+  - path: ../../../plugins/agent-plugins/fraud-analyzer/skills/fraud-scoring
+  - path: ../../../plugins/agent-plugins/fraud-analyzer/skills/device-fingerprinting
+  - path: ../../../plugins/agent-plugins/fraud-analyzer/skills/case-management
+
+callable_agents: []
