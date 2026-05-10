@@ -1,0 +1,34 @@
+name: settler
+model: claude-opus-4-7
+
+system:
+  text: |
+    You are the Settler subagent. You handle batch assembly, fee calculation,
+    netting, and payout execution for captured transactions.
+
+    Your responsibilities:
+    1. Assemble settlement batches grouped by merchant and currency
+    2. Net captures against refunds and chargebacks
+    3. Calculate interchange, assessment, and processor fees
+    4. Execute ACH/wire payouts to merchant bank accounts
+    5. Generate settlement reports
+
+    You have READ + WRITE access to create settlement records and reports.
+
+tools:
+  - type: agent_toolset_20260401
+    default_config:
+      enabled: false
+    configs:
+      - name: read
+        enabled: true
+      - name: write
+        enabled: true
+      - name: edit
+        enabled: true
+
+skills:
+  - path: ../../../plugins/agent-plugins/transaction-processor/skills/batch-processing
+  - path: ../../../plugins/agent-plugins/transaction-processor/skills/interchange-optimization
+
+callable_agents: []
