@@ -1,0 +1,28 @@
+name: merchant-onboarder
+model: claude-opus-4-7
+
+system:
+  file: ../../plugins/agent-plugins/merchant-onboarder/agents/merchant-onboarder.md
+
+tools:
+  - type: agent_toolset_20260401
+    default_config:
+      enabled: false
+    configs:
+      - name: read
+        enabled: true
+      - name: grep
+        enabled: true
+
+mcp_servers:
+  - type: url
+    name: middesk
+    url: "${MIDDESK_MCP_URL}"
+
+skills:
+  - from_plugin: ../../plugins/agent-plugins/merchant-onboarder
+
+callable_agents:
+  - manifest: ./subagents/doc-reader.yaml
+  - manifest: ./subagents/underwriter.yaml
+  - manifest: ./subagents/provisioner.yaml
