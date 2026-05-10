@@ -1,0 +1,8 @@
+{
+  "name": "fraud-detection",
+  "version": "0.1.0",
+  "description": "Real-time fraud scoring, rule engines, ML model integration, and case management for payment transactions.",
+  "author": {
+    "name": "Eris Payment Services"
+  }
+}
