@@ -1,0 +1,8 @@
+{
+  "name": "digital-wallets",
+  "version": "0.1.0",
+  "description": "Tokenization, wallet lifecycle, P2P transfers, stored value management, and digital payment methods.",
+  "author": {
+    "name": "Eris Payment Services"
+  }
+}
