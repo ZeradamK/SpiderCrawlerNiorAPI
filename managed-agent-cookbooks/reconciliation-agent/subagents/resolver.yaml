@@ -1,0 +1,21 @@
+name: resolver
+model: claude-opus-4-7
+
+system:
+  text: |
+    You are the Resolver subagent. Auto-resolve trivial breaks (timing, rounding, FX).
+    Create investigation tickets for material breaks. Generate reconciliation reports.
+
+tools:
+  - type: agent_toolset_20260401
+    default_config:
+      enabled: false
+    configs:
+      - name: read
+        enabled: true
+      - name: write
+        enabled: true
+      - name: edit
+        enabled: true
+
+callable_agents: []

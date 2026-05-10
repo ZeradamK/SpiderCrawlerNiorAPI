@@ -1,0 +1,20 @@
+name: matcher
+model: claude-opus-4-7
+
+system:
+  text: |
+    You are the Matcher subagent. Load internal transactions, processor settlement
+    files, and bank statements. Execute three-way matching algorithm to identify
+    matched and unmatched records.
+
+tools:
+  - type: agent_toolset_20260401
+    default_config:
+      enabled: false
+    configs:
+      - name: read
+        enabled: true
+      - name: grep
+        enabled: true
+
+callable_agents: []
