@@ -1,0 +1,8 @@
+{
+  "name": "chargeback-handler",
+  "version": "0.1.0",
+  "description": "Dispute lifecycle management agent with intake, evidence-building, and resolution subagents.",
+  "author": {
+    "name": "Eris Payment Services"
+  }
+}
