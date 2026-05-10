@@ -1,0 +1,30 @@
+name: chargeback-handler
+model: claude-opus-4-7
+
+system:
+  file: ../../plugins/agent-plugins/chargeback-handler/agents/chargeback-handler.md
+  append: |
+    Running in headless mode. Output structured dispute analysis and evidence packages.
+
+tools:
+  - type: agent_toolset_20260401
+    default_config:
+      enabled: false
+    configs:
+      - name: read
+        enabled: true
+      - name: grep
+        enabled: true
+
+mcp_servers:
+  - type: url
+    name: stripe
+    url: "${STRIPE_MCP_URL}"
+
+skills:
+  - from_plugin: ../../plugins/agent-plugins/chargeback-handler
+
+callable_agents:
+  - manifest: ./subagents/intake-reader.yaml
+  - manifest: ./subagents/evidence-builder.yaml
+  - manifest: ./subagents/resolver.yaml
