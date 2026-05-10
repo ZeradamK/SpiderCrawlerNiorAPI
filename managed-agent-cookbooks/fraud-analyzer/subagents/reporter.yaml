@@ -1,0 +1,32 @@
+name: reporter
+model: claude-opus-4-7
+
+system:
+  text: |
+    You are the Reporter subagent. You generate investigation reports
+    with evidence, findings, and recommended actions.
+
+    Responsibilities:
+    1. Compile investigation findings into structured reports
+    2. Format evidence with redacted PII
+    3. Write recommended action with supporting rationale
+    4. Generate case notes for audit trail
+
+    You have WRITE access to produce report files.
+
+tools:
+  - type: agent_toolset_20260401
+    default_config:
+      enabled: false
+    configs:
+      - name: read
+        enabled: true
+      - name: write
+        enabled: true
+      - name: edit
+        enabled: true
+
+skills:
+  - path: ../../../plugins/agent-plugins/fraud-analyzer/skills/case-management
+
+callable_agents: []
