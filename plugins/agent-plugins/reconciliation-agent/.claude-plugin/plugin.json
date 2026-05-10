@@ -1,0 +1,8 @@
+{
+  "name": "reconciliation-agent",
+  "version": "0.1.0",
+  "description": "Cross-system reconciliation agent with matcher, break-finder, and resolver subagents.",
+  "author": {
+    "name": "Eris Payment Services"
+  }
+}
