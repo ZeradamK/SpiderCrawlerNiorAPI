@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "visa-net": {
+      "type": "http",
+      "url": "https://mcp.visa.com/settlement/mcp"
+    },
+    "mastercard-clearing": {
+      "type": "http",
+      "url": "https://mcp.mastercard.com/clearing/mcp"
+    }
+  }
+}
