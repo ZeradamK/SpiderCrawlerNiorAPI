@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ErisWallet",
+  "description": "Digital wallet entity schema for the Eris payment platform",
+  "type": "object",
+  "required": ["id", "customer_id", "status", "tier", "created_at"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^wal_[a-zA-Z0-9]{24}$"
+    },
+    "customer_id": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["active", "suspended", "closed", "pending_verification"]
+    },
+    "tier": {
+      "type": "string",
+      "enum": ["basic", "standard", "premium", "business"]
+    },
+    "balances": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "currency": { "type": "string", "pattern": "^[A-Z]{3}$" },
+          "available": { "type": "integer", "minimum": 0 },
+          "pending": { "type": "integer", "minimum": 0 },
+          "reserved": { "type": "integer", "minimum": 0 }
+        },
+        "required": ["currency", "available"]
+      }
+    },
+    "limits": {
+      "type": "object",
+      "properties": {
+        "max_balance": { "type": "integer", "minimum": 0 },
+        "daily_transfer": { "type": "integer", "minimum": 0 },
+        "single_transaction": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "funding_sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "type": { "type": "string", "enum": ["bank_account", "debit_card", "direct_deposit"] },
+          "is_default": { "type": "boolean" },
+          "verified": { "type": "boolean" },
+          "last_four": { "type": "string", "pattern": "^[0-9]{4}$" }
+        },
+        "required": ["id", "type", "verified"]
+      }
+    },
+    "features": {
+      "type": "object",
+      "properties": {
+        "p2p_enabled": { "type": "boolean" },
+        "bill_pay_enabled": { "type": "boolean" },
+        "merchant_pay_enabled": { "type": "boolean" },
+        "auto_reload_enabled": { "type": "boolean" },
+        "international_enabled": { "type": "boolean" }
+      }
+    },
+    "created_at": { "type": "string", "format": "date-time" },
+    "updated_at": { "type": "string", "format": "date-time" }
+  }
+}
