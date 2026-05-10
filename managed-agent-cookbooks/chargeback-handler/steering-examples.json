@@ -1,0 +1,14 @@
+[
+  {
+    "description": "Visa fraud chargeback",
+    "input": "Process incoming Visa chargeback on txn_card_purchase_001. Reason code 10.4 (Card Absent Fraud). Amount: $349.99. Deadline: 30 days."
+  },
+  {
+    "description": "Mastercard non-receipt dispute",
+    "input": "Mastercard chargeback on txn_online_order_042. Reason code 4853 (Goods Not Provided). Customer claims never received. We have FedEx tracking showing delivered. Amount: $129.00."
+  },
+  {
+    "description": "Duplicate processing claim",
+    "input": "Customer disputes duplicate charge. Two transactions for $75.00 on same card within 5 minutes at same merchant. Verify if these are truly duplicate or two separate purchases."
+  }
+]
