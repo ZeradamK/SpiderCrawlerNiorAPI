@@ -1,0 +1,8 @@
+{
+  "name": "payment-processing",
+  "version": "0.1.0",
+  "description": "Core transaction lifecycle — authorization, capture, settlement, refunds, voids. Provides the foundational skills and commands for all payment operations in the Eris platform.",
+  "author": {
+    "name": "Eris Payment Services"
+  }
+}
