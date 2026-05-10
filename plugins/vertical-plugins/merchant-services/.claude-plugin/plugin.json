@@ -1,0 +1,8 @@
+{
+  "name": "merchant-services",
+  "version": "0.1.0",
+  "description": "Merchant onboarding, underwriting, MCC classification, fee management, and portfolio monitoring.",
+  "author": {
+    "name": "Eris Payment Services"
+  }
+}
