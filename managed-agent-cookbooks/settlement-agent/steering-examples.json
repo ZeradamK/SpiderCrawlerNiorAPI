@@ -1,0 +1,10 @@
+[
+  {
+    "description": "Daily settlement run",
+    "input": "Execute daily settlement for all active merchants. Cutoff: 2026-05-08 23:59:59 UTC. Process all captured, unsettled transactions."
+  },
+  {
+    "description": "Single merchant settlement",
+    "input": "Run settlement for merchant mch_big_retailer only. They have 1,247 captured transactions totaling $892,450.00 USD ready for settlement."
+  }
+]
