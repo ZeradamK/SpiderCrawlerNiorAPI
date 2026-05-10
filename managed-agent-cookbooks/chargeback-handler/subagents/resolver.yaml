@@ -1,0 +1,22 @@
+name: resolver
+model: claude-opus-4-7
+
+system:
+  text: |
+    You are the Resolver. Submit representment to processor, monitor outcomes,
+    track win/loss metrics, and feed results back for model improvement.
+
+tools:
+  - type: agent_toolset_20260401
+    default_config:
+      enabled: false
+    configs:
+      - name: read
+        enabled: true
+      - name: write
+        enabled: true
+
+skills:
+  - path: ../../../plugins/agent-plugins/chargeback-handler/skills/chargeback-management
+
+callable_agents: []
