@@ -1,0 +1,25 @@
+name: evidence-builder
+model: claude-opus-4-7
+
+system:
+  text: |
+    You are the Evidence Builder. Compile evidence packages for chargeback representment.
+    Pull transaction records, AVS/CVV data, 3DS authentication, delivery confirmations,
+    and customer communication logs. Draft compelling rebuttal narratives.
+
+tools:
+  - type: agent_toolset_20260401
+    default_config:
+      enabled: false
+    configs:
+      - name: read
+        enabled: true
+      - name: write
+        enabled: true
+      - name: edit
+        enabled: true
+
+skills:
+  - path: ../../../plugins/agent-plugins/chargeback-handler/skills/chargeback-management
+
+callable_agents: []
