@@ -1,0 +1,56 @@
+# Dependencies
+node_modules/
+venv/
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# Environment & Secrets
+.env
+.env.*
+*.key
+*.pem
+*.p12
+*.pfx
+credentials.json
+service-account.json
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Build outputs
+out/
+build/
+dist/
+*.egg-info/
+
+# Claude Code session files
+TASKS.md
+MEMORY.md
+.claude/worktrees/
+
+# Local config
+*.local.md
+*.local.json
+!.claude/settings.local.json
+
+# Test & coverage
+coverage/
+.nyc_output/
+htmlcov/
+.pytest_cache/
+.coverage
+
+# Logs
+*.log
+logs/
