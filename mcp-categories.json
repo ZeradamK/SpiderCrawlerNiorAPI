@@ -1,0 +1,52 @@
+{
+  "categories": [
+    {
+      "id": "payment-gateways",
+      "name": "Payment Gateways",
+      "description": "Direct integrations with payment processors and gateway APIs",
+      "examples": ["stripe", "adyen", "braintree", "square", "checkout-com"]
+    },
+    {
+      "id": "banking-rails",
+      "name": "Banking Rails",
+      "description": "ACH, wire, SWIFT, SEPA, and real-time payment network connectors",
+      "examples": ["plaid", "modern-treasury", "column", "increase"]
+    },
+    {
+      "id": "fraud-risk",
+      "name": "Fraud & Risk",
+      "description": "Fraud detection, risk scoring, and identity verification services",
+      "examples": ["sift", "sardine", "socure", "alloy"]
+    },
+    {
+      "id": "compliance-kyc",
+      "name": "Compliance & KYC",
+      "description": "KYC/AML screening, sanctions checks, and regulatory reporting",
+      "examples": ["chainalysis", "complyadvantage", "jumio", "onfido"]
+    },
+    {
+      "id": "card-networks",
+      "name": "Card Networks",
+      "description": "Visa, Mastercard, Amex, and Discover network APIs",
+      "examples": ["visa-direct", "mastercard-send", "amex-api"]
+    },
+    {
+      "id": "treasury-banking",
+      "name": "Treasury & Banking",
+      "description": "Cash management, FX, and corporate banking APIs",
+      "examples": ["currencycloud", "wise-platform", "banking-circle"]
+    },
+    {
+      "id": "data-enrichment",
+      "name": "Data Enrichment",
+      "description": "Transaction categorization, merchant data, and financial insights",
+      "examples": ["mx", "finicity", "yodlee"]
+    },
+    {
+      "id": "document-storage",
+      "name": "Document Storage",
+      "description": "Document management and secure file storage for payment records",
+      "examples": ["egnyte", "box", "s3"]
+    }
+  ]
+}
