@@ -1,0 +1,24 @@
+name: poster
+model: claude-opus-4-7
+
+system:
+  text: |
+    You are the Poster. Execute ACH/wire payouts, generate settlement reports,
+    and monitor payout status. You have WRITE access for settlements.
+
+tools:
+  - type: agent_toolset_20260401
+    default_config:
+      enabled: false
+    configs:
+      - name: read
+        enabled: true
+      - name: write
+        enabled: true
+      - name: edit
+        enabled: true
+
+skills:
+  - path: ../../../plugins/agent-plugins/settlement-agent/skills/batch-processing
+
+callable_agents: []
