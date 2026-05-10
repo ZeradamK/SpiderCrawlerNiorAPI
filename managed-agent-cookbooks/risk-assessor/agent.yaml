@@ -1,0 +1,31 @@
+name: risk-assessor
+model: claude-opus-4-7
+
+system:
+  file: ../../plugins/agent-plugins/risk-assessor/agents/risk-assessor.md
+
+tools:
+  - type: agent_toolset_20260401
+    default_config:
+      enabled: false
+    configs:
+      - name: read
+        enabled: true
+      - name: grep
+        enabled: true
+
+mcp_servers:
+  - type: url
+    name: sift
+    url: "${SIFT_MCP_URL}"
+  - type: url
+    name: middesk
+    url: "${MIDDESK_MCP_URL}"
+
+skills:
+  - from_plugin: ../../plugins/agent-plugins/risk-assessor
+
+callable_agents:
+  - manifest: ./subagents/data-puller.yaml
+  - manifest: ./subagents/modeler.yaml
+  - manifest: ./subagents/reporter.yaml
