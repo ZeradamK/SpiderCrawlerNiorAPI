@@ -1,0 +1,109 @@
+{
+  "name": "eris-payment-as-a-service",
+  "description": "Modular payment processing platform — agents, skills, and commands for the full transaction lifecycle",
+  "owner": {
+    "name": "Zeradam Kifle Fantaye"
+  },
+  "plugins": [
+    {
+      "name": "payment-processing",
+      "source": "./plugins/vertical-plugins/payment-processing",
+      "description": "Core transaction lifecycle — authorization, capture, settlement, refunds, voids"
+    },
+    {
+      "name": "fraud-detection",
+      "source": "./plugins/vertical-plugins/fraud-detection",
+      "description": "Real-time fraud scoring, rule engines, ML model integration, case management"
+    },
+    {
+      "name": "compliance-aml",
+      "source": "./plugins/vertical-plugins/compliance-aml",
+      "description": "KYC/AML screening, sanctions checks, SAR filing, regulatory reporting"
+    },
+    {
+      "name": "merchant-services",
+      "source": "./plugins/vertical-plugins/merchant-services",
+      "description": "Merchant onboarding, underwriting, MCC classification, fee schedules"
+    },
+    {
+      "name": "treasury-management",
+      "source": "./plugins/vertical-plugins/treasury-management",
+      "description": "Cash positioning, FX hedging, liquidity forecasting, bank connectivity"
+    },
+    {
+      "name": "settlement-clearing",
+      "source": "./plugins/vertical-plugins/settlement-clearing",
+      "description": "Batch settlement, interchange optimization, network reconciliation"
+    },
+    {
+      "name": "digital-wallets",
+      "source": "./plugins/vertical-plugins/digital-wallets",
+      "description": "Tokenization, wallet lifecycle, P2P transfers, stored value management"
+    },
+    {
+      "name": "transaction-processor",
+      "source": "./plugins/agent-plugins/transaction-processor",
+      "description": "End-to-end payment orchestration agent with authorization, capture, and settlement subagents"
+    },
+    {
+      "name": "fraud-analyzer",
+      "source": "./plugins/agent-plugins/fraud-analyzer",
+      "description": "Real-time fraud scoring and case review agent with scorer, investigator, and reporter subagents"
+    },
+    {
+      "name": "chargeback-handler",
+      "source": "./plugins/agent-plugins/chargeback-handler",
+      "description": "Dispute lifecycle management agent with intake, evidence-building, and resolution subagents"
+    },
+    {
+      "name": "merchant-onboarder",
+      "source": "./plugins/agent-plugins/merchant-onboarder",
+      "description": "Merchant application processing agent with doc-reader, underwriter, and provisioner subagents"
+    },
+    {
+      "name": "compliance-screener",
+      "source": "./plugins/agent-plugins/compliance-screener",
+      "description": "AML/KYC screening workflow agent with doc-parser, rules-engine, and escalator subagents"
+    },
+    {
+      "name": "settlement-agent",
+      "source": "./plugins/agent-plugins/settlement-agent",
+      "description": "Batch settlement orchestration agent with aggregator, netter, and poster subagents"
+    },
+    {
+      "name": "reconciliation-agent",
+      "source": "./plugins/agent-plugins/reconciliation-agent",
+      "description": "Cross-system reconciliation agent with matcher, break-finder, and resolver subagents"
+    },
+    {
+      "name": "risk-assessor",
+      "source": "./plugins/agent-plugins/risk-assessor",
+      "description": "Transaction and portfolio risk scoring agent with data-puller, modeler, and reporter subagents"
+    },
+    {
+      "name": "payment-router",
+      "source": "./plugins/agent-plugins/payment-router",
+      "description": "Intelligent payment routing agent with analyzer, optimizer, and executor subagents"
+    },
+    {
+      "name": "dispute-resolver",
+      "source": "./plugins/agent-plugins/dispute-resolver",
+      "description": "End-to-end dispute resolution agent with intake, investigator, and decision-maker subagents"
+    },
+    {
+      "name": "stripe-connector",
+      "source": "./plugins/partner-built/stripe",
+      "description": "Stripe payment processing MCP integration — charges, subscriptions, payouts"
+    },
+    {
+      "name": "adyen-connector",
+      "source": "./plugins/partner-built/adyen",
+      "description": "Adyen omnichannel payments MCP integration — POS, online, marketplace"
+    },
+    {
+      "name": "plaid-connector",
+      "source": "./plugins/partner-built/plaid",
+      "description": "Plaid financial data MCP integration — account linking, identity verification, transactions"
+    }
+  ]
+}
