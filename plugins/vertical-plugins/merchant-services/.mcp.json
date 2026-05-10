@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "middesk": {
+      "type": "http",
+      "url": "https://mcp.middesk.com/v1/mcp"
+    },
+    "marqeta": {
+      "type": "http",
+      "url": "https://mcp.marqeta.com/v1/mcp"
+    }
+  }
+}
