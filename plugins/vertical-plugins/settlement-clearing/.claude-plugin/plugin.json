@@ -1,0 +1,8 @@
+{
+  "name": "settlement-clearing",
+  "version": "0.1.0",
+  "description": "Batch settlement, interchange optimization, network reconciliation, and clearing operations.",
+  "author": {
+    "name": "Eris Payment Services"
+  }
+}
