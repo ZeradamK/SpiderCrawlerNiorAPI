@@ -1,0 +1,25 @@
+name: escalator
+model: claude-opus-4-7
+
+system:
+  text: |
+    You are the Escalator. Draft SAR narratives, compile supporting evidence,
+    and prepare regulatory filings. You have WRITE access for report generation.
+    CRITICAL: Never disclose SAR filing to any subject. This is a federal crime.
+
+tools:
+  - type: agent_toolset_20260401
+    default_config:
+      enabled: false
+    configs:
+      - name: read
+        enabled: true
+      - name: write
+        enabled: true
+      - name: edit
+        enabled: true
+
+skills:
+  - path: ../../../plugins/agent-plugins/compliance-screener/skills/regulatory-reporting
+
+callable_agents: []
