@@ -1,0 +1,8 @@
+{
+  "name": "compliance-screener",
+  "version": "0.1.0",
+  "description": "AML/KYC screening workflow agent with doc-parser, rules-engine, and escalator subagents.",
+  "author": {
+    "name": "Eris Payment Services"
+  }
+}
