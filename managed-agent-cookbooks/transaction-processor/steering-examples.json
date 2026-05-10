@@ -1,0 +1,22 @@
+[
+  {
+    "description": "Standard card authorization and capture",
+    "input": "Authorize and capture a $150.00 USD payment on Visa ending 4242 for merchant mch_acme_electronics (MCC 5732). Card-not-present, e-commerce."
+  },
+  {
+    "description": "High-value authorization requiring review",
+    "input": "Process a $12,500.00 USD authorization on Amex ending 1001 for merchant mch_luxury_watches. First-time card on this merchant. International card (UK issuer, US merchant)."
+  },
+  {
+    "description": "Partial capture for split shipment",
+    "input": "Capture $75.00 of a $200.00 authorized transaction txn_abc123 for the first shipment. Remaining $125.00 will ship next week."
+  },
+  {
+    "description": "Refund processing",
+    "input": "Process a full refund on transaction txn_xyz789. Customer requested return within 30-day policy. Original amount: $89.99 USD."
+  },
+  {
+    "description": "Settlement batch execution",
+    "input": "Run daily settlement for merchant mch_coffee_chain. Cutoff time: 11:59 PM EST. Include all captured transactions from today."
+  }
+]
