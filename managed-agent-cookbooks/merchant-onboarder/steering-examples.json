@@ -1,0 +1,10 @@
+[
+  {
+    "description": "Standard retail merchant onboarding",
+    "input": "Process merchant application for 'Green Valley Grocery', LLC in Oregon, EIN 98-7654321. Expected monthly volume: $85,000. Average ticket: $45. Brick-and-mortar retail."
+  },
+  {
+    "description": "High-risk e-commerce merchant",
+    "input": "Review application for 'Digital Downloads Pro', sole proprietor, selling digital software licenses online. Expected monthly volume: $200,000. Average ticket: $150. Card-not-present only."
+  }
+]
