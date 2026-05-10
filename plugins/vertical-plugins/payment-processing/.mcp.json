@@ -1,0 +1,40 @@
+{
+  "mcpServers": {
+    "stripe": {
+      "type": "http",
+      "url": "https://mcp.stripe.com/v1/mcp"
+    },
+    "adyen": {
+      "type": "http",
+      "url": "https://mcp.adyen.com/v1/mcp"
+    },
+    "plaid": {
+      "type": "http",
+      "url": "https://mcp.plaid.com/v1/mcp"
+    },
+    "modern-treasury": {
+      "type": "http",
+      "url": "https://mcp.moderntreasury.com/v1/mcp"
+    },
+    "visa-direct": {
+      "type": "http",
+      "url": "https://mcp.visa.com/direct/mcp"
+    },
+    "mastercard-send": {
+      "type": "http",
+      "url": "https://mcp.mastercard.com/send/mcp"
+    },
+    "increase": {
+      "type": "http",
+      "url": "https://mcp.increase.com/v1/mcp"
+    },
+    "column": {
+      "type": "http",
+      "url": "https://mcp.column.com/v1/mcp"
+    },
+    "mx": {
+      "type": "http",
+      "url": "https://mcp.mx.com/v1/mcp"
+    }
+  }
+}
