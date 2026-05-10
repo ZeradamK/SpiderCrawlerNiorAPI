@@ -1,0 +1,8 @@
+{
+  "name": "adyen-connector",
+  "version": "0.1.0",
+  "description": "Adyen omnichannel payments MCP integration — online, POS, marketplace, and issuing.",
+  "author": {
+    "name": "Adyen"
+  }
+}
