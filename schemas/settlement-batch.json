@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ErisSettlementBatch",
+  "description": "Settlement batch schema for the Eris payment platform",
+  "type": "object",
+  "required": ["id", "merchant_id", "status", "total_amount", "currency", "transaction_count", "created_at"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^stl_[a-zA-Z0-9]{24}$"
+    },
+    "merchant_id": {
+      "type": "string",
+      "pattern": "^mch_[a-zA-Z0-9]{24}$"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["pending", "processing", "settled", "failed", "partially_settled"]
+    },
+    "total_amount": { "type": "integer" },
+    "net_amount": { "type": "integer" },
+    "fee_amount": { "type": "integer", "minimum": 0 },
+    "currency": { "type": "string", "pattern": "^[A-Z]{3}$" },
+    "transaction_count": { "type": "integer", "minimum": 0 },
+    "transactions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "transaction_id": { "type": "string" },
+          "amount": { "type": "integer" },
+          "fee": { "type": "integer" },
+          "type": { "type": "string", "enum": ["capture", "refund", "chargeback"] }
+        },
+        "required": ["transaction_id", "amount", "type"]
+      }
+    },
+    "destination_account": {
+      "type": "object",
+      "properties": {
+        "bank_name": { "type": "string" },
+        "routing_number": { "type": "string" },
+        "account_last_four": { "type": "string", "pattern": "^[0-9]{4}$" }
+      }
+    },
+    "settlement_date": { "type": "string", "format": "date" },
+    "created_at": { "type": "string", "format": "date-time" },
+    "completed_at": { "type": ["string", "null"], "format": "date-time" }
+  }
+}
