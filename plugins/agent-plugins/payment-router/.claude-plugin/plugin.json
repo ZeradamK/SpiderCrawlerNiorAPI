@@ -1,0 +1,8 @@
+{
+  "name": "payment-router",
+  "version": "0.1.0",
+  "description": "Intelligent payment routing agent with analyzer, optimizer, and executor subagents.",
+  "author": {
+    "name": "Eris Payment Services"
+  }
+}
