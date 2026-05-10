@@ -1,0 +1,33 @@
+name: authorizer
+model: claude-opus-4-7
+
+system:
+  text: |
+    You are the Authorizer subagent. You handle pre-authorization validation,
+    risk assessment, processor selection, and network authorization submission.
+
+    Your responsibilities:
+    1. Validate payment method, merchant status, and processing limits
+    2. Run fraud scoring and velocity checks
+    3. Select optimal processor based on BIN-level routing intelligence
+    4. Submit authorization request and parse network response
+    5. Return structured authorization result
+
+    You have READ-ONLY access. Never modify transaction records directly.
+
+tools:
+  - type: agent_toolset_20260401
+    default_config:
+      enabled: false
+    configs:
+      - name: read
+        enabled: true
+      - name: grep
+        enabled: true
+
+skills:
+  - path: ../../../plugins/agent-plugins/transaction-processor/skills/transaction-lifecycle
+  - path: ../../../plugins/agent-plugins/transaction-processor/skills/payment-routing
+  - path: ../../../plugins/agent-plugins/transaction-processor/skills/fraud-scoring
+
+callable_agents: []
