@@ -1,0 +1,104 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ErisTransaction",
+  "description": "Core transaction object schema for the Eris payment platform",
+  "type": "object",
+  "required": ["id", "type", "amount", "currency", "status", "created_at"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^txn_[a-zA-Z0-9]{24}$",
+      "description": "Unique transaction identifier"
+    },
+    "type": {
+      "type": "string",
+      "enum": ["authorization", "capture", "sale", "refund", "void", "credit", "chargeback", "reversal"],
+      "description": "Transaction type"
+    },
+    "amount": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Amount in smallest currency unit (e.g., cents)"
+    },
+    "currency": {
+      "type": "string",
+      "pattern": "^[A-Z]{3}$",
+      "description": "ISO 4217 currency code"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["pending", "authorized", "captured", "settled", "declined", "failed", "voided", "refunded", "disputed"],
+      "description": "Current transaction status"
+    },
+    "merchant": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "pattern": "^mch_[a-zA-Z0-9]{24}$" },
+        "name": { "type": "string" },
+        "mcc": { "type": "string", "pattern": "^[0-9]{4}$" },
+        "country": { "type": "string", "pattern": "^[A-Z]{2}$" }
+      },
+      "required": ["id", "name", "mcc"]
+    },
+    "payment_method": {
+      "type": "object",
+      "properties": {
+        "type": { "type": "string", "enum": ["card", "ach", "wire", "wallet", "crypto", "bnpl"] },
+        "token": { "type": "string" },
+        "last_four": { "type": "string", "pattern": "^[0-9]{4}$" },
+        "brand": { "type": "string", "enum": ["visa", "mastercard", "amex", "discover", "other"] },
+        "funding": { "type": "string", "enum": ["credit", "debit", "prepaid"] }
+      },
+      "required": ["type"]
+    },
+    "risk_score": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100,
+      "description": "Fraud risk score (0 = lowest risk, 100 = highest)"
+    },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": { "type": "string" },
+      "description": "Key-value pairs for custom metadata"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "settled_at": {
+      "type": ["string", "null"],
+      "format": "date-time"
+    },
+    "reference_id": {
+      "type": ["string", "null"],
+      "description": "External reference ID from the originating system"
+    },
+    "parent_transaction_id": {
+      "type": ["string", "null"],
+      "description": "Parent transaction ID for refunds, captures, and chargebacks"
+    },
+    "network_response": {
+      "type": "object",
+      "properties": {
+        "code": { "type": "string" },
+        "message": { "type": "string" },
+        "auth_code": { "type": "string" },
+        "avs_result": { "type": "string" },
+        "cvv_result": { "type": "string" }
+      }
+    },
+    "three_ds": {
+      "type": "object",
+      "properties": {
+        "version": { "type": "string", "enum": ["1.0", "2.1", "2.2"] },
+        "status": { "type": "string", "enum": ["authenticated", "attempted", "failed", "unavailable"] },
+        "eci": { "type": "string" }
+      }
+    }
+  }
+}
