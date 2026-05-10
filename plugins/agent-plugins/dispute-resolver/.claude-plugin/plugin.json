@@ -1,0 +1,8 @@
+{
+  "name": "dispute-resolver",
+  "version": "0.1.0",
+  "description": "End-to-end dispute resolution agent with intake, investigator, and decision-maker subagents.",
+  "author": {
+    "name": "Eris Payment Services"
+  }
+}
